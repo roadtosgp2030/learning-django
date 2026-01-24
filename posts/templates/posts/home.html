@@ -1,0 +1,18 @@
+{% extends "base.html" %} 
+
+{% block title %} Home Page {% endblock title %}
+
+{% block content %}
+  <h1>{{username|title}}</h1>
+  {% for post in posts %}
+  <div
+    style="cursor: pointer; border: 1px solid #000; margin: 10px; padding: 10px">
+    <a href='{% url "post_detail" post.id %}'
+      >{{forloop.counter}} - {{ post.title|title }}</a
+    >
+    <p>{{ post.content|truncatewords:5 }}</p>
+  </div>
+  {% empty %}
+  <h1>No Posts Available</h1>
+  {% endfor %}
+{% endblock content %}
