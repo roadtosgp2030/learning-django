@@ -24,7 +24,7 @@ posts = [
 
 
 def home(request):
-    return render(request, "posts/home.html", {"posts": posts, "username": "vu duc"})
+    return render(request, "posts/index.html", {"posts": posts, "username": "vu duc"})
 
 
 def post_detail(request, post_id):
