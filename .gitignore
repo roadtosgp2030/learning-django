@@ -1,3 +1,28 @@
-# Python
+# ===== Python =====
 __pycache__/
 *.py[cod]
+*$py.class
+
+# ===== Virtual environments =====
+venv/
+env/
+.venv/
+ENV/
+
+# ===== Django =====
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+
+# Django secrets & local settings
+.env
+.env.*
+local_settings.py
+
+# ===== Migrations =====
+# Keep migrations, ignore only cache
+**/migrations/__pycache__/
+
+# ===== Logs =====
+*.log
