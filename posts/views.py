@@ -1,5 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.http import (
+    Http404,
+    HttpResponse,
+    HttpResponseNotFound,
+    HttpResponseRedirect,
+)
 from django.urls import reverse
 
 
@@ -24,7 +29,7 @@ posts = [
 
 
 def home(request):
-    return render(request, "posts/index.html", {"posts": posts, "username": "vu duc"})
+    return render(request, "posts/index.html", {"posts": posts})
 
 
 def post_detail(request, post_id):
@@ -37,7 +42,7 @@ def post_detail(request, post_id):
     if valid_id:
         return render(request, "posts/post.html", {"post": post_dict})
     else:
-        return HttpResponseNotFound("<h1>Post not found</h1>")
+        raise Http404()
 
 
 def redirect_to_detail(request, post_id):
